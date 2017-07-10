@@ -20,13 +20,10 @@ pid = None
 
 if len(sys.argv) > 2:
   pid = int(sys.argv[2])
-
 try:
   if pid is not None:
     kill(pid, signal.SIGTERM)
-
   p = Popen(['python', sys.argv[1]])
-
 except KeyboardInterrupt:
   print KeyboardInterrupt
 
@@ -45,4 +42,4 @@ try:
 
 except KeyboardInterrupt:
   p.kill()
-  print '\nStoped'
+  print '\n Stopped'
