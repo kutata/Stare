@@ -5,11 +5,24 @@ from os import listdir, execv, execl, kill
 from os.path import getmtime, isfile, join
 import signal
 
-def listmydir():
-  onlyFiles = [f for f in listdir('./') if isfile(join('./', f))]
-  return onlyFiles
+import re
+FILES_PATTERN = '.jpg|.png|.gif|.pyc|_.+'
+FOLDER_PATTERN = ''
 
-FILES = listmydir()
+def listmydir(path):
+  fs = listdir(path)
+  _fs = []
+  for f in fs:
+    if not isfile(join(path, f)):
+      # folder pttern here
+      _fs += listmydir(join(path, f))
+    else:
+      if re.search(FILES_PATTERN, f) is None:
+        _fs.append(join(path, f))
+
+  return _fs
+
+FILES = listmydir('./')
 FILES_MTIMES = [(f, getmtime(f)) for f in FILES]
 
 import time
@@ -20,10 +33,13 @@ pid = None
 
 if len(sys.argv) > 2:
   pid = int(sys.argv[2])
+
 try:
   if pid is not None:
     kill(pid, signal.SIGTERM)
+
   p = Popen(['python', sys.argv[1]])
+
 except KeyboardInterrupt:
   print KeyboardInterrupt
 
@@ -42,4 +58,4 @@ try:
 
 except KeyboardInterrupt:
   p.kill()
-  print '\n Stopped'
+  print '\nStoped'
