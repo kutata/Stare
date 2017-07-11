@@ -46,13 +46,14 @@ except KeyboardInterrupt:
 try:
   while True:
     for f, mtime in FILES_MTIMES:
-      if getmtime(f) != mtime:
-        print('--------- restarted --------')
-        if p is None:
-          execv(__file__, sys.argv)
-        else:
-          argv = sys.argv[:2] + [str(p.pid)]
-          execv(__file__, argv)
+      if (isfile(f)):
+        if getmtime(f) != mtime:
+          print('--------- restarted --------')
+          if p is None:
+            execv(__file__, sys.argv)
+          else:
+            argv = sys.argv[:2] + [str(p.pid)]
+            execv(__file__, argv)
 
     time.sleep(1)
 
