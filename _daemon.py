@@ -6,8 +6,10 @@ from os.path import getmtime, isfile, join
 import signal
 
 import re
-FILES_PATTERN = '.jpg|.png|.gif|.pyc|_.+'
+FILES_FILTER = '.jpg|.png|.gif|.pyc|.log|.pk|^\..+'
 FOLDER_PATTERN = ''
+
+PYTHON = 'python'
 
 def listmydir(path):
   fs = listdir(path)
@@ -17,12 +19,13 @@ def listmydir(path):
       # folder pttern here
       _fs += listmydir(join(path, f))
     else:
-      if re.search(FILES_PATTERN, f) is None:
+      if re.search(FILES_FILTER, f) is None:
         _fs.append(join(path, f))
 
   return _fs
 
 FILES = listmydir('./')
+
 FILES_MTIMES = [(f, getmtime(f)) for f in FILES]
 
 import time
@@ -38,16 +41,18 @@ try:
   if pid is not None:
     kill(pid, signal.SIGTERM)
 
-  p = Popen(['python', sys.argv[1]])
+  # p = Popen('./' + sys.argv[1], shell=True)
+  p = Popen([PYTHON, sys.argv[1]])
 
 except KeyboardInterrupt:
-  print KeyboardInterrupt
+  print(KeyboardInterrupt)
 
 try:
   while True:
     for f, mtime in FILES_MTIMES:
       if (isfile(f)):
         if getmtime(f) != mtime:
+          print('file: ' + f + ' has changed.')
           print('--------- restarted --------')
           if p is None:
             execv(__file__, sys.argv)
@@ -59,4 +64,4 @@ try:
 
 except KeyboardInterrupt:
   p.kill()
-  print '\nStoped'
+  print('\nStoped')

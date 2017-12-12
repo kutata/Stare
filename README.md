@@ -4,4 +4,4 @@ inspiration from Petr Zemek -> [Restarting a Python Script Within Itself](https:
 
 ### How to use:
 
-`python daemon.py foo.py`
+`python _daemon.py foo.py` or `./_daemon.py foo.py`
