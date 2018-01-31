@@ -29,7 +29,7 @@ FILES = listmydir('./')
 FILES_MTIMES = [(f, getmtime(f)) for f in FILES]
 
 import time
-from subprocess import call, Popen
+from subprocess import Popen
 
 p = None
 pid = None
