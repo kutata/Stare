@@ -64,4 +64,4 @@ try:
 
 except KeyboardInterrupt:
   p.kill()
-  print('\nStoped')
+  print('\nStopped')
