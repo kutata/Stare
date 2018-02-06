@@ -6,3 +6,15 @@ Inspiration from Petr Zemek -> [Restarting a Python Script Within Itself](https:
 ### How to use:
 
 `python watcher.py foo.py` or './watcher foo.py`
+
+### watching less
+
+first you need install lessc via npm. 😂
+
+`npm install -g lessc`
+
+then checkout less branch.
+
+`git checkout less`
+
+`./watcher style.less style.css`
