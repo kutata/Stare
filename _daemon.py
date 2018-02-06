@@ -9,7 +9,7 @@ import re
 FILES_FILTER = '.jpg|.png|.gif|.pyc|.log|.pk|^\..+'
 FOLDER_PATTERN = ''
 
-PYTHON = 'python'
+command = 'python' # specified python version
 
 def listmydir(path):
   fs = listdir(path)
@@ -42,7 +42,7 @@ try:
     kill(pid, signal.SIGTERM)
 
   # p = Popen('./' + sys.argv[1], shell=True)
-  p = Popen([PYTHON, sys.argv[1]])
+  p = Popen([command, sys.argv[1]])
 
 except KeyboardInterrupt:
   print(KeyboardInterrupt)
