@@ -16,11 +16,11 @@ def check():
   cmd = []
   # check options
   if len(sys.argv) < 2:
-    exit('Please specified watch file.')
-  # default exec with PYTHON
+    exit('no target file')
+  # use python as the default interpreter
   elif len(sys.argv) < 3:
     cmd = ['python'] + sys.argv[1:]
-  # exec with specified tool
+  # specified interpreter manually
   else:
     cmd = sys.argv[1:]
 
