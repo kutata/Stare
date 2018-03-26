@@ -1,20 +1,17 @@
-### Description
+### Description:
+
 a simple FILES WATCHER written in python.
 
 Inspiration from Petr Zemek -> [Restarting a Python Script Within Itself](https://blog.petrzemek.net/2014/03/23/restarting-a-python-script-within-itself/)
 
-### How to use:
+### Usage:
 
-`python watcher.py foo.py` or './watcher foo.py`
+by default, `stare` use `python` as the default interpreter.
 
-### watching less
+`stare a.py`
 
-first you need install lessc via npm. 😂
+or you might specified your interpreter manually.
 
-`npm install -g lessc`
+`stare lessc main.less`
 
-then checkout less branch.
-
-`git checkout less`
-
-`./watcher style.less style.css`
+finally, you can move `stare` to your `/bin` folder and use it easily.

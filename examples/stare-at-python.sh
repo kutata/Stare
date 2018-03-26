@@ -1,0 +1,1 @@
+../stare foo.py
