@@ -1,11 +1,12 @@
-### Description:
+# Description
 
 `stare` is a simple FILES WATCHER written in python.
-it can monitor your script change and automatically re-execute it.
+
+It can monitor your script change and automatically re-execute it.
 
 Inspiration from Petr Zemek -> [Restarting a Python Script Within Itself](https://blog.petrzemek.net/2014/03/23/restarting-a-python-script-within-itself/)
 
-### Usage:
+# Usage
 
 by default, `stare` use `python` as the default interpreter.
 
