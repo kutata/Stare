@@ -4,7 +4,7 @@
 
 It can detect your script change and automatically restart it.
 
-*Inspiration from Petr Zemek* -> [Restarting a Python Script Within Itself](https://blog.petrzemek.net/2014/03/23/restarting-a-python-script-within-itself/)
+*Inspiration by Petr Zemek* -> [Restarting a Python Script Within Itself](https://blog.petrzemek.net/2014/03/23/restarting-a-python-script-within-itself/)
 
 ## Usage:
 
